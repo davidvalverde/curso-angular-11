@@ -1,0 +1,24 @@
+<div style="margin-top: 20px" class="container">
+    <h3>Reactive Form</h3>
+    <form [formGroup]="formularioRegistro"
+      (submit)="enviarFormulario(formularioRegistro.value)">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input placeholder='Nombre' type='text' formControlName="nombre">
+        <div *ngIf="formularioRegistro.controls.nombre.dirty && formularioRegistro.controls.nombre.errors" 
+             class="alert alert-danger">El nombre es obligatorio</div>
+      </div>
+      <div class="form-group">
+        <label for="poblacion">Población</label>
+        <input placeholder='Población' type='text' formControlName="poblacion">
+        <div *ngIf="formularioRegistro.controls.poblacion.dirty && formularioRegistro.controls.poblacion.errors" 
+              class="alert alert-danger">El valor de población es obligatorio</div>
+      </div>
+      <div class="form-group">
+        <label for="url">Url</label>
+        <input placeholder='Url' type='text' formControlName="url">
+      </div>
+      <button type="submit" class="btn btn-default"
+              [disabled]="formularioRegistro.invalid">Enviar</button>
+    </form>
+</div>
