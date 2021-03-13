@@ -1,0 +1,35 @@
+<div style="margin: 16px">
+    <h2>Países</h2>
+    <p>{{mensaje | excerpt:35:'... (texto oculto por pipe)'}}</p>
+  
+    <button class="btn btn-primary" style="margin-right: 20px" (click)="ordenaPaises()">Ordenar</button>
+    Población: <input type="text" (input)="onChange($event)" />
+    Nombre: <input type="text" #filtro (keyup)="0" />
+  
+    <div style="text-align: left; display: flex;" 
+        *ngFor="let pais of paises | paisPorNombre:filtro.value">
+      <div style="margin-top: 20px">
+        <p>{{pais.id}}</p>
+        <img style="margin-right:10px; width : 128px;"
+             src="assets/{{pais.imagen}}">
+      </div>
+      <div style="align-self: flex-start; margin-top: 65px;">
+        <div>{{pais.nombre}}</div>
+        <div>{{pais.poblacion}}</div>
+        <div>URL:<a href="{{pais.url}}">{{pais.url}}</a></div>
+      </div>
+      <ng-template #hiddenInfo>
+        <div style="align-self: flex-start; margin-top: 65px; margin-left: 20px">
+            <button class="btn btn-primary" (click)="mostrarOcultarInfo(pais.id)">Mostrar</button>
+        </div>
+      </ng-template>
+      <div style="align-self: flex-start; margin-top: 65px; margin-left: 20px"
+           *ngIf="pais.mostrarInfo; else hiddenInfo;">
+        <div>{{pais.capital}}</div>
+        <div>{{pais.moneda}}</div>
+        <div><button class="btn btn-primary" (click)="mostrarOcultarInfo(pais.id)">Ocultar</button></div>
+      </div>
+    </div>
+
+    <app-paises-reactive-form (nuevoPais)=anadirPais($event)></app-paises-reactive-form>
+  </div>
