@@ -1,0 +1,18 @@
+<h1>Animales</h1>
+<div *ngFor="let animal of animales">
+  <p>{{animal.id}}.- {{animal.nombre}}</p>
+</div>
+<button type="button" name="button" (click)="get()">Mostrar datos</button>
+
+<form class="" action="">
+  <div style="margin: 1%;" class="">
+    <label for="id">ID: </label>
+    <input type="number" name="id" value="" [(ngModel)]="id">
+  </div>
+  <div class="">
+    <label for="nombre">Nombre: </label>
+    <input type="text" name="nombre" value="" [(ngModel)]="nombre">
+  </div>
+  <button style="margin: 1%;" type="button" (click)="add()"
+          name="button">Enviar datos</button>
+</form>
