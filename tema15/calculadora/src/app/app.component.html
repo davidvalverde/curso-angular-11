@@ -1,0 +1,41 @@
+<div class="p-5">
+    <h4 class="mb-5">Calculadora estándar</h4>
+  
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Número 1</span>
+        </div>
+        <app-input class="form-control" [(num)]="num1" (result)="addNumber($event, 0)">
+      </app-input>
+      </div>
+  
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Número 2</span>
+        </div>
+        <app-input class="form-control" [(num)]="num2"  (result)="addNumber($event,1)">
+        </app-input> 
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <app-button class="form-control" op="+" [numbers]="numbers" 
+                      (result)="getResultado($event)"></app-button>
+          <app-button class="form-control" op="-" [numbers]="numbers" 
+                      (result)="getResultado($event)"></app-button>
+          <app-button class="form-control" op="*" [numbers]="numbers"
+                      (result)="getResultado($event)"></app-button>
+          <app-button class="form-control" op="/" [numbers]="numbers" 
+                      (result)="getResultado($event)"></app-button>
+      
+        </div>
+      
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <input type="text" class="form-control" placeholder="Resultado" 
+                   disabled value="{{result}}">
+          </div>
+      
+          <button mat-flat-button color="warn" (click)="borrar()">Borrar todo</button>
+        </div>
+      </div>
+      </div>

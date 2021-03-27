@@ -1,0 +1,35 @@
+<div class="p-5">
+    <h4 class="mb-5">Calculadora estándar</h4>
+  
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Número 1</span>
+      </div>
+      <input type="number" class="form-control" [(ngModel)]="num1" required>
+    </div>
+  
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Número 2</span>
+      </div>
+      <input type="number" class="form-control" [(ngModel)]="num2" required>
+    </div>
+  
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button class="btn btn-outline-secondary" (click)="sumar()">Sumar</button>
+        <button class="btn btn-outline-secondary" (click)="restar()">Restar</button>
+        <button class="btn btn-outline-secondary" (click)="multiplicar()">Multiplicar</button>
+        <button class="btn btn-outline-secondary" (click)="dividir()">Dividir</button>
+      </div>
+    </div>
+  
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <input type="text" class="form-control" placeholder="Resultado" disabled [(ngModel)]="resultado">
+      </div>
+  
+      <button class="btn btn-danger" (click)="borrar()">Borrar todo</button>
+    </div>
+  </div>
+  
