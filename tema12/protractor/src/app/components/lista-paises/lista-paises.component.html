@@ -1,0 +1,20 @@
+<div class="m-2 p-2">
+  <h2>Países</h2>
+  <button class="btn btn-dark" style="margin-right: 20px" (click)="ordenaPaises()" id="ordenar">Ordenar</button> 
+  Población: <input type="text" (input)="onChange($event)" />
+
+  <div class="p-4 mt-2" [ngClass]="{odd: odd, even : even}" style="text-align: left; display: flex;" *ngFor="let pais of listadoPaises let even = even; let odd = odd;">
+    <div class="mr-3">    
+      <img style="margin-right:10px; width : 128px;" src="assets/{{pais.imagen}}">
+    </div>
+    <div style="align-self: flex-start; ">
+      <div>{{pais.id}}.-</div>
+      <div id="test">{{pais.nombre}}</div>
+      <div>{{pais.poblacion}}</div>
+      <div>URL: <a href="{{pais.url}}">{{pais.url}}</a></div>   
+
+    </div>
+    
+  </div>
+  <app-paises-form (nuevoPais)=anadirPais($event)></app-paises-form>    
+</div>

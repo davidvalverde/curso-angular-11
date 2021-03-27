@@ -1,0 +1,31 @@
+<div style="margin-top: 20px" class="container">
+    <form (ngSubmit)="onSubmit()" #paisForm="ngForm">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" 
+              [(ngModel)]="model.nombre" name="nombre" required #nombre="ngModel">
+        <div [hidden]="nombre.valid || nombre.pristine" 
+             class="alert alert-danger">El nombre es obligatorio</div>
+      </div>
+      <div class="form-group">
+        <label for="poblacion">Población</label>
+        <input type="number" class="form-control" id="poblacion" 
+               [(ngModel)]="model.poblacion" name="poblacion" required 
+                #poblacion="ngModel">
+        <div [hidden]="poblacion.valid || poblacion.pristine" 
+              class="alert alert-danger">El valor de población es obligatorio</div>
+      </div>
+      <div class="form-group">
+        <label for="url">Url</label>
+        <input type="text" class="form-control" 
+                id="url" [(ngModel)]="model.url" name="url">
+      </div>
+      <div class="form-group">
+        <label for="imagen">Imagen</label>
+        <input type="text" class="form-control" 
+                id="imagen" [(ngModel)]="model.imagen" name="imagen">
+      </div>
+      <button type="submit" id="enviarpais" class="btn btn-default"
+              [disabled]="!paisForm.form.valid">Enviar</button>
+    </form>
+</div>
