@@ -1,0 +1,4 @@
+1) ng generate component [nombre_componente]
+2) /dist
+3) --verbose
+4) ng serve --prod --port [puerto]
